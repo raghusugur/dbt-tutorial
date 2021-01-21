@@ -3,5 +3,5 @@ select
     Id as payment_id,
     amount/100 as amount
     
-from raw.Stripe.payment
+from {{ source('stripe', 'payment') }}
 where status='success'
